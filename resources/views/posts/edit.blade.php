@@ -7,9 +7,15 @@
     <body>
         <h1 class="title">編集画面</h1>
         <div class="content">
-            <form action="/posts/{{ $post->id }}" method="POST">
+            <form action="/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+                 <div class="image">
+                <input type="file" name="image">
+            </div>
+            <div class="image">
+            <button type="button" name="image_delete">画像を消去する</button>
+            </div>
                 <div class='content__title'>
                     <h2>タイトル</h2>
                     <input type='text' name='post[title]' value="{{ $post->title }}">
