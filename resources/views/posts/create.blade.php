@@ -11,7 +11,7 @@
             @csrf
             <div>
                 <h2>タイトル</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
+                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/><!--これはnameがpost[title]でpostだからstoreメソッドの$reqest[post]で拾ってもらえる-->
                 <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
             </div>
             <div>

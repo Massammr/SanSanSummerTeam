@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class PostController extends Controller
 {
@@ -23,9 +25,10 @@ class PostController extends Controller
         return view('posts/create')->with(['categories' => $category->get()]);
     }
 
-    public function store(Post $post, Request $request)
+    public function store(Post $post, Request $request)//$requestにはユーザーが入力したタイトルやボディが入っている。8-4の内容
     {
-        $input = $request['post'];
+        $input = $request['post'];//$inputに$request['post']を入れている。
+        $post->user_id = Auth::id();
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
