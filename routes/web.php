@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 
 
 
@@ -19,6 +20,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
+    
 });
 
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
@@ -28,5 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+Route::get('/posts/{post}/comment', [CommentController::class, 'create']);
+Route::post('/comments', [CommentController::class, 'store']);
 
 require __DIR__.'/auth.php';

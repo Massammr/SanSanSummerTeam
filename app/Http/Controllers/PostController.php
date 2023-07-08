@@ -8,6 +8,7 @@ use App\Models\Category;
 use Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -16,9 +17,9 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 
-    public function show(Post $post)
+    public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post]);
+        return view('posts/show')->with(['post' => $post, 'comment' => $comment]);
     }
 
     public function create(Category $category)
