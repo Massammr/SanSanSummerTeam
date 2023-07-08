@@ -16,7 +16,13 @@
         </div>
         <div>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
+            <p class="comment">[<a href="/posts/{{ $post->id }}/comment">コメント作成]</p>
             <a href="/">戻る</a>
+        </div>
+        <div>
+            @if (!(isset($comment)))
+                <p>コメント：{{ $comment->body }}</p>
+            @endif
         </div>
     </body>
 </html>

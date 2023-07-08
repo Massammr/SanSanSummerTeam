@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::put('/posts/{post}',  [PostController::class, 'update']);
 Route::delete('/posts/{post}',  [PostController::class, 'delete']);
 Route::get('/posts/{post}/edit',  [PostController::class, 'edit']);
 Route::get('/categories/{category}', [CategoryController::class,'index']);
+Route::get('/posts/{post}/comment', [CommentController::class, 'create']);
+Route::post('/comments', [CommentController::class, 'store']);
