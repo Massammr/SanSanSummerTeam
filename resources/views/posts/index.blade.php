@@ -6,6 +6,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
+    <x-app-layout>
+    <x-slot name="header">
+        Index
+    </x-slot>
     <body>
         <h1>チーム開発会へようこそ！</h1>
         <h2>投稿一覧画面</h2>
@@ -13,6 +17,9 @@
         <div>
             @foreach ($posts as $post)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
+                    <p>
+                        アカウント名:{{$post->user->name}}
+                    </p>
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </p>
@@ -37,4 +44,5 @@
     }
 </script>
     </body>
+    </x-app-layout>
 </html>
