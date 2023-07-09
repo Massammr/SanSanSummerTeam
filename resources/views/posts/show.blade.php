@@ -25,9 +25,12 @@
             <a href="/">戻る</a>
         </div>
         <div>
-            @if (!(isset($comment)))
-                <p>コメント：{{ $comment->body }}</p>
-            @endif
+            <!--@if (!(isset($comment)))-->
+            <!--    <p>コメント：{{ $comment->body }}</p>-->
+            <!--@endif-->
+            @foreach ($comment as $i)
+                <p>コメント：{{ $i->body }}</p>
+            @endforeach
         </div>
     </body>
 </html>
