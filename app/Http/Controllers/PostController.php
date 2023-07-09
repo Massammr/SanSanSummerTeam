@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post, 'comment' => $comment->get()]);
+        return view('posts/show')->with(['post' => $post, 'comment' => $post->comments()->get()]);
     }
 
     public function create(Category $category)
@@ -54,6 +54,9 @@ class PostController extends Controller
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
             // $post->image_url = $image_url;
             $input_post += ['image_url' => $image_url];
+        }else{
+            $image_url = NULL;
+             $input_post += ['image_url' => $image_url];
         }
         $post->fill($input_post)->save();
 
