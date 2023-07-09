@@ -21,6 +21,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
     Route::get('/users/{user}','account')->name('account');
+    Route::put('/introduction','introduction')->name('introduction');
     
 });
 

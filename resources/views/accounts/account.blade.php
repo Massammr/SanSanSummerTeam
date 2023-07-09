@@ -11,7 +11,16 @@
         Account page
     </x-slot>
     <body>
-        <p>kkk</p>
+         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div>
+                    <p>{{$user->name}}</p>
+                </div>
+            </div>
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <div>
+                    <p>{{$user->introduction}}</p>
+                </div>
+            </div>
     </body>
     </x-app-layout>
 </html>
