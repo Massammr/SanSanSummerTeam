@@ -13,10 +13,11 @@
     <body>
         <h1>チーム開発会へようこそ！</h1>
         <h2>投稿一覧画面</h2>
-        <a href='/posts/create'>新規投稿</a>
+        <br>
+        <a href='/posts/create' style='font-weight : 600; font-size : 1.2em; background : blue; color : white;'>新規投稿</a>
         <div>
             @foreach ($posts as $post)
-                <div style='border:solid 1px; margin-bottom: 10px;'>
+                <div style='border:solid 1px; margin-top: 50px;'>
                     <p>
                         アカウント名:<a href="/users/{{$post->user->id}}">{{$post->user->name}}</a>
                     </p>
@@ -28,7 +29,7 @@
            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
     @csrf
     @method('DELETE')
-    <button type="button" onclick="deletePost({{ $post->id }})">delete</button> 
+    <button type="button" style='color : red;'onclick="deletePost({{ $post->id }})">delete</button> 
             @endforeach
         </div>
         <div>

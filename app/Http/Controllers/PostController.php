@@ -54,6 +54,9 @@ class PostController extends Controller
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
             // $post->image_url = $image_url;
             $input_post += ['image_url' => $image_url];
+        }else{
+            $image_url = NULL;
+             $input_post += ['image_url' => $image_url];
         }
         $post->fill($input_post)->save();
 
