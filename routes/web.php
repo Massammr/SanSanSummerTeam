@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::put('/posts/{post}',  [ImagedeleteController::class, 'image.delete']);
 
 Route::get('/posts/{post}/create', [CommentController::class, 'create']);
 Route::post('/comments', [CommentController::class, 'store']);
