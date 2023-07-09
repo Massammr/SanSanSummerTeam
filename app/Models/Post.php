@@ -36,6 +36,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function like()
-        return $this->belongsTo(Lile::class)
+    public function like(){
+        return $this->belongsTo(Lile::class);
+    }
 }
