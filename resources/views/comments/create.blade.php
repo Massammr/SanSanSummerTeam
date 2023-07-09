@@ -11,7 +11,7 @@
             @csrf
             <div>
                 <h2>コメント本文</h2>
-                <textarea name="comment[body]" placeholder="コメントありがとうございます。"/>
+                <textarea name="comment[body]" placeholder="コメントありがとうございます。"></textarea>
                 <input value="{{ $post->id }}" type="hidden" name="comment[post_id]" />
                 <input value="{{ Auth::id() }}" type="hidden" name="comment[user_id]" />
             </div>
