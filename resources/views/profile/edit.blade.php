@@ -19,7 +19,7 @@
                     <form action="/introduction" method="POST">
                         @csrf
                         @method('PUT')
-                        <input type='text' name="users[introduction]" value="{{$user ->introduction()}}">
+                        <input type='text' name="users[introduction]" value="{{$user->introduction}}">
                         <input type="submit" value="保存"/>
                     </form>
                 </div>
