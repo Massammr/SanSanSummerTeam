@@ -65,9 +65,19 @@ class PostController extends Controller
     public function account(User $user){
         return view ('accounts/account')->with(['user' => $user]);
     }
-public function delete(Post $post)
-{
-    $post->delete();
-    return redirect('/');
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
+    public function introduction(Request $request)
+    {
+        $user = Auth::user();
+        $input = $request['users'];
+        $user->fill($input)->save();
+        return redirect('/profile');
+    }
+    
 }
-}
+
+    

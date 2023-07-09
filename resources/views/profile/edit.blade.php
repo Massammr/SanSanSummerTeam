@@ -15,7 +15,13 @@
             
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    <p>なにか一言</p>
+                    <p>ひとことコメント</p>
+                    <form action="/introduction" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type='text' name="users[introduction]" value="{{$user ->introduction()}}">
+                        <input type="submit" value="保存"/>
+                    </form>
                 </div>
             </div>
 
