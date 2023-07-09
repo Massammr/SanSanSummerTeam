@@ -18,7 +18,7 @@
             @foreach ($posts as $post)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     <p>
-                        アカウント名:{{$post->user->name}}
+                        アカウント名:<a href="/users/{{$post->user->id}}">{{$post->user->name}}</a>
                     </p>
                     <p>
                         タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
