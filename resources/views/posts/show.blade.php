@@ -25,12 +25,23 @@
             <a href="/">戻る</a>
         </div>
         <div>
-            <!--@if (!(isset($comment)))-->
-            <!--    <p>コメント：{{ $comment->body }}</p>-->
-            <!--@endif-->
-            @foreach ($comment as $i)
-                <p>コメント：{{ $i->body }}</p>
+            @foreach ($comments as $comment)
+                <p>コメント：{{ $comment->body }}</p>
+                <form action="/comments/{{ $comment->id }}" id="form_{{ $comment->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deleteComment({{ $comment->id }})">削除</button> 
+                </form>
             @endforeach
         </div>
+        <script>
+            function deleteComment(id) {
+                'use strict'
+
+                if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                document.getElementById(`form_${id}`).submit();
+                }
+            }
+        </script>
     </body>
 </html>
