@@ -22,6 +22,8 @@ class PostSeeder extends Seeder
             'category_id' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'user_id' => 1,
+            'image_url' => 'a' ,
             
         ]);
 
@@ -31,6 +33,9 @@ class PostSeeder extends Seeder
             'category_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'user_id' => 1,
+            'image_url' => 'a' ,
+            
             
         ]);
 
@@ -40,6 +45,8 @@ class PostSeeder extends Seeder
             'category_id' => 2,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'user_id' => 1,
+            'image_url' => 'a' ,
         ]);
     }
 }
