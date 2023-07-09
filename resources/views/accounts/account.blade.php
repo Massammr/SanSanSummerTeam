@@ -11,7 +11,7 @@
         Account page
     </x-slot>
     <body>
-        <p>kkk</p>
+        <p>{{$user->name}}</p>
     </body>
     </x-app-layout>
 </html>
