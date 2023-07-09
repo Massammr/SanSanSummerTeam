@@ -15,11 +15,10 @@ class CommentController extends Controller
         return view('comments/create');
     }
     
-    public function store(Request $request, Comment $comment)
+    public function store(Request $request, Comment $comment, Post $post)
     {
-        $comment->body = $request->body;
-        $comment->user_id = Auth::user()->id;
-        $comment->post_id = $request->post_id;
+        $input=$request['comment'];
+        $post->fill($input)->save();
         return redirect('/posts');
     }
 

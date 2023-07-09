@@ -12,16 +12,16 @@
         <div>
             <p>タイトル：{{ $post->title }}</p>
             @if($post->image_url)
-<div>
-    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
-</div>
-@endif
+                <div>
+                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+                </div>
+            @endif
             <p>本文：{{ $post->body }}</p>
             <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
         </div>
         <div>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
-            <p class="comment">[<a href="/posts/{{ $post->id }}/comment">コメント作成]</p>
+            <p class="comment">[<a href="/posts/{{ $post->id }}/create">コメント作成]</p>
             <a href="/">戻る</a>
         </div>
         <div>
