@@ -54,17 +54,32 @@ class PostController extends Controller
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
             // $post->image_url = $image_url;
             $input_post += ['image_url' => $image_url];
+        }else{
+            $image_url = NULL;
+             $input_post += ['image_url' => $image_url];
         }
         $post->fill($input_post)->save();
 
         return redirect('/posts/' . $post->id);
     }
 
-
-    public function like(Request $request, Lile $like)
-    {
-        $input=$request['like'];
-        $like->fill($input)->save;
-        return redirect('/posts/'. $like->post_id);
+    public function account(User $user){
+        return view ('accounts/account')->with(['user' => $user]);
     }
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
+    public function introduction(Request $request)
+    {
+        $user = Auth::user();
+        $input = $request['users'];
+        $user->fill($input)->save();
+        return redirect('/profile');
+    }
+    
+
 }
+
+    

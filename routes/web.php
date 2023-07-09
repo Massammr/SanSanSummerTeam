@@ -20,6 +20,8 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
+    Route::get('/users/{user}','account')->name('account');
+    Route::put('/introduction','introduction')->name('introduction');
     
 });
 
@@ -32,6 +34,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
+// Route::put('/posts/{post}',  [ImagedeleteController::class, 'image.delete']);
 
 Route::get('/posts/{post}/create', [CommentController::class, 'create']);
 Route::post('/comments', [CommentController::class, 'store']);

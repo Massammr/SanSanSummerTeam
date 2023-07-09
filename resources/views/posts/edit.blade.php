@@ -13,9 +13,11 @@
                  <div class="image">
                 <input type="file" name="image">
             </div>
-            <div class="image">
-            <button type="button" name="image_delete">画像を消去する</button>
-            </div>
+           <div class="toggle_button" style="display:flex">
+               <p>画像を消去する</p>
+  <input id="toggle" class="toggle_input" type='checkbox' />
+
+</div>
                 <div class='content__title'>
                     <h2>タイトル</h2>
                     <input type='text' name='post[title]' value="{{ $post->title }}">
