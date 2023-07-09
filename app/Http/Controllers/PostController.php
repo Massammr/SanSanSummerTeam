@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post, 'comment' => $comment->get()]);
+        return view('posts/show')->with(['post' => $post, 'comment' => $post->comments()->get()]);
     }
 
     public function create(Category $category)
