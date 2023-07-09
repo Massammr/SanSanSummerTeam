@@ -19,7 +19,7 @@ class PostController extends Controller
 
     public function show(Post $post, Comment $comment)
     {
-        return view('posts/show')->with(['post' => $post, 'comment' => $post->comments()->get()]);
+        return view('posts/show')->with(['post' => $post, 'comments' => $post->comments()->get()]);
     }
 
     public function create(Category $category)
@@ -60,4 +60,11 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 
+
+    public function like(Request $request, Lile $like)
+    {
+        $input=$request['like'];
+        $like->fill($input)->save;
+        return redirect('/posts/'. $like->post_id);
+    }
 }

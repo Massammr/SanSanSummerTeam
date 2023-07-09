@@ -35,5 +35,9 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/posts/{post}/create', [CommentController::class, 'create']);
 Route::post('/comments', [CommentController::class, 'store']);
+Route::delete('/comments/{comment}', [CommentController::class, 'delete']);
+
+Route::get('/posts/{post}/like/{id}', [PostController, 'like']);
+Route::get('/posts/{post}/unlike/{id}', [PostController, 'unlike']);
 
 require __DIR__.'/auth.php';
