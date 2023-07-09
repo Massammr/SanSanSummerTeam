@@ -5,21 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Cloudinary;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function create()
+    public function create(Post $post, Comment $comment)
     {
-        return view('comments/create');
+        return view('comments/create')->with(['post' => $post], ['comment => $comment']);
     }
     
     public function store(Request $request, Comment $comment, Post $post)
     {
         $input=$request['comment'];
-        $post->fill($input)->save();
-        return redirect('/posts');
+        $comment->fill($input)->save();
+        return redirect('/posts/' . $comment->post_id);
     }
 
 }
